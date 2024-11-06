@@ -36,6 +36,19 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="type_id" class="form-label">seleziona una tipologia progetto:</label>
+                <select class="form-control" aria-label="Default select example" id="type_id" name="type_id">
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+                @error('type_id')
+                    <div class="alert alert-warning">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="url" class="form-label">link progetto:</label>
                 <input type="text" class="form-control" id="project-url" name="url" value="{{ old('url') }}">
                 @error('url')
